@@ -38,23 +38,21 @@ namespace PII_Game_Of_Life
                         //Celula muere por baja población
                         cloneboard.SetValue(x,y,false);
                     }
-                    if (cloneboard.GetValue(x,y) && aliveNeighbors > 3)
+                    else if (cloneboard.GetValue(x,y) && aliveNeighbors > 3)
                     {
                         //Celula muere por sobrepoblación
                         cloneboard.SetValue(x,y,false);
                     }
-                    if (!cloneboard.GetValue(x,y) && aliveNeighbors == 3)
+                    else if (!cloneboard.GetValue(x,y) && aliveNeighbors == 3)
                     {
                         //Celula nace por reproducción
                         cloneboard.SetValue(x,y,true);
                     }
-                    /*
                     else
                     {
                         //Celula mantiene el estado que tenía
                         cloneboard.SetValue(x,y,cloneboard.GetValue(x,y));
                     }
-                    */
                 }
             }
             return cloneboard;
