@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text;
+using System.IO;
+using System.Threading;
 
 namespace PII_Game_Of_Life
 {
@@ -6,7 +9,8 @@ namespace PII_Game_Of_Life
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GameBoard board = Import.ImportBoard(@"..\..\assets\board.txt");
+            GameBoard tablero = Drawer.BoardDrawer(board);
         }
     }
 }
