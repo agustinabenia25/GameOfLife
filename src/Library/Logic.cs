@@ -19,43 +19,49 @@ namespace PII_Game_Of_Life
                 for (int y = 0; y < boardHeight; y++)
                 {
                     int aliveNeighbors = 0;
-                    for (int i = x - 1; i <= x + 1; i++)
+                    for (int i = x - 1; i < x + 2; i++)
                     {
-                        for (int j = y - 1; j <= y + 1; j++)
+                        for (int j = y - 1; j < y + 2; j++)
                         {
-                            if(i >= 0 && i < boardWidth && j >= 0 && j < boardHeight && cloneboard.GetValue(i,j))
+                            if(i >= 0 && i < boardWidth && j >= 0 && j < boardHeight && tablero.GetValue(i,j))
                             {
-                                aliveNeighbors++;
+                                aliveNeighbors = aliveNeighbors + 1;
                             }
                         }
                     }
-                    if(cloneboard.GetValue(x,y))
+                    if(tablero.GetValue(x,y))
                     {
-                        aliveNeighbors--;
+                        aliveNeighbors = aliveNeighbors - 1;
                     }
-                    if (cloneboard.GetValue(x,y) && aliveNeighbors < 2)
+                    if (tablero.GetValue(x,y) && aliveNeighbors < 2)
                     {
-                        //Celula muere por baja población
+                        // Celula muere por baja poblacion
+                        //Console.WriteLine($"Celula muere por baja población en {x},{y}. Vecinos {aliveNeighbors}");
                         cloneboard.SetValue(x,y,false);
                     }
-                    else if (cloneboard.GetValue(x,y) && aliveNeighbors > 3)
+                    if (tablero.GetValue(x,y) && aliveNeighbors > 3)
                     {
                         //Celula muere por sobrepoblación
+                        //Console.WriteLine($"Celula muere por sobrepoblacion en {x},{y}. Vecinos {aliveNeighbors}");
                         cloneboard.SetValue(x,y,false);
                     }
-                    else if (!cloneboard.GetValue(x,y) && aliveNeighbors == 3)
+                    if (!tablero.GetValue(x,y) && aliveNeighbors == 3)
                     {
                         //Celula nace por reproducción
+                        //Console.WriteLine($"Celula nace por reproduccion en {x},{y}. Vecinos {aliveNeighbors}");
                         cloneboard.SetValue(x,y,true);
                     }
+                    /*
                     else
                     {
                         //Celula mantiene el estado que tenía
                         cloneboard.SetValue(x,y,cloneboard.GetValue(x,y));
                     }
+                    */
                 }
             }
-            return cloneboard;
+            tablero = cloneboard;
+            return tablero;
         }
     }
 }

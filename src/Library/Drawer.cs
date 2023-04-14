@@ -11,11 +11,11 @@ namespace PII_Game_Of_Life
         {
             int width = tablero.Width();
             int height = tablero.Height();
-            int count = 0;
-            while (count < 2)
+            //int count = 0;
+            while (true)
             {
-                Console.WriteLine($"Nueva jugada, height {height} width {width}");
-                //Console.Clear();
+                //Console.WriteLine($"Nueva jugada, height {height} width {width}");
+                Console.Clear();
                 StringBuilder s = new StringBuilder();
                 for (int y = 0; y<height;y++)
                 {
@@ -34,10 +34,10 @@ namespace PII_Game_Of_Life
                 }
                 Console.WriteLine(s.ToString());
                 tablero = Logic.Play(tablero);
-                Thread.Sleep(600);
-                count++;
+                Thread.Sleep(100);
+                //count++;
             }
-            return tablero;
+            //return tablero;
         }
     }
 }

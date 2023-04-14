@@ -10,7 +10,7 @@ namespace PII_Game_Of_Life
         static void Main(string[] args)
         {
             GameBoard board = Import.ImportBoard(@"..\..\assets\board.txt");
-            GameBoard tablero = Drawer.BoardDrawer(board);
+            Drawer.BoardDrawer(board);
         }
     }
 }
