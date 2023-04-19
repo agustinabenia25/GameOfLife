@@ -9,11 +9,11 @@ namespace PII_Game_Of_Life
     {
         public static GameBoard Play(GameBoard tablero)
         {
-            //bool[,] gameBoard = tablero.board;
+            // Inserto snippet de la lógica del juego y modifico acorde a la clase GameBoard.
             int boardWidth = tablero.Width();
             int boardHeight = tablero.Height();
 
-            GameBoard cloneboard = tablero.Clone(); //new bool[boardWidth, boardHeight];
+            GameBoard cloneboard = tablero.Clone();
             for (int x = 0; x < boardWidth; x++)
             {
                 for (int y = 0; y < boardHeight; y++)
@@ -36,28 +36,18 @@ namespace PII_Game_Of_Life
                     if (tablero.GetValue(x,y) && aliveNeighbors < 2)
                     {
                         // Celula muere por baja poblacion
-                        //Console.WriteLine($"Celula muere por baja población en {x},{y}. Vecinos {aliveNeighbors}");
                         cloneboard.SetValue(x,y,false);
                     }
                     if (tablero.GetValue(x,y) && aliveNeighbors > 3)
                     {
-                        //Celula muere por sobrepoblación
-                        //Console.WriteLine($"Celula muere por sobrepoblacion en {x},{y}. Vecinos {aliveNeighbors}");
+                        // Celula muere por sobrepoblación
                         cloneboard.SetValue(x,y,false);
                     }
                     if (!tablero.GetValue(x,y) && aliveNeighbors == 3)
                     {
-                        //Celula nace por reproducción
-                        //Console.WriteLine($"Celula nace por reproduccion en {x},{y}. Vecinos {aliveNeighbors}");
+                        // Celula nace por reproducción
                         cloneboard.SetValue(x,y,true);
                     }
-                    /*
-                    else
-                    {
-                        //Celula mantiene el estado que tenía
-                        cloneboard.SetValue(x,y,cloneboard.GetValue(x,y));
-                    }
-                    */
                 }
             }
             tablero = cloneboard;

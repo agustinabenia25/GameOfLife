@@ -7,6 +7,7 @@ namespace PII_Game_Of_Life
 {
     public class Import
     {
+        // Inserto snippet para leer archivo.
         public static GameBoard ImportBoard(string ruta)
         {
             string url = ruta;
